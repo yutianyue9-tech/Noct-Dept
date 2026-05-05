@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Arimo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+
+  --color-surface: #0a0a0a;
+  --color-surface-dim: #0a0a0a;
+  --color-surface-bright: #262626;
+  --color-surface-container-lowest: #050505;
+  --color-surface-container-low: #121212;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #222222;
+  --color-surface-container-highest: #2b2b2b;
+  --color-on-surface: #edebe8;
+  --color-on-surface-variant: #b5b5b5;
+  --color-outline: #666666;
+  --color-outline-variant: #333333;
+  --color-primary: #ffffff;
+  --color-on-primary: #000000;
+  --color-primary-container: #333333;
+  --color-on-primary-container: #ffffff;
+  --color-secondary: #a3a3a3;
+  --color-background: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans antialiased overflow-x-hidden;
+    cursor: crosshair;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Vertical text helper */
+.vertical-text {
+  writing-mode: vertical-rl;
+}
+
+::selection {
+  background: #e0ddd0;
+  color: #131313;
+}
